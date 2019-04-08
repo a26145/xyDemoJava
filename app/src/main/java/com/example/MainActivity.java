@@ -1,4 +1,4 @@
-package com.example.xydemojava;
+package com.example;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import com.example.xydemo.adapter.RecyclerViewCommonAdapter;
 import com.example.xydemo.base.BaseActivity;
 import com.example.xydemo.constant.Constants;
 import com.example.xydemo.recyclerlayoutmanagers.LayoutManager;
+import com.example.xydemojava.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
