@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <cn.jzvd.JZVideoPlayerStandard
+        android:id="@+id/videoplayer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bt_xq"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="商家详情"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/bt_dz"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="点赞"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/bt_sc"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="收藏"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/bt_fx"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="分享"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>
