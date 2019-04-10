@@ -16,7 +16,7 @@
             android:id="@+id/bt_xq"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="商家详情"
+            android:text="详情"
             android:layout_height="match_parent" />
         <Button
             android:id="@+id/bt_dz"
@@ -35,6 +35,12 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:text="分享"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/bt_del"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="删除"
             android:layout_height="match_parent" />
     </LinearLayout>
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.xydemo.base.BaseActivity;
-import com.example.xydemo.constant.Constants;
+import com.example.xydemo.constant.Constants_Menu;
 import com.example.xydemo.interfaces.UpDateInterface;
 import com.example.xydemojava.R;
 
@@ -16,7 +16,7 @@ public class RecyclerViewCommonAdapter extends RecyclerView.Adapter<RecyclerView
 
     private BaseActivity activity;
     private int size;
-    private Constants.MainMenuModel model;
+    private Constants_Menu.MainMenuModel model;
 
     public RecyclerViewCommonAdapter(BaseActivity mainActivity) {
         activity = mainActivity;
@@ -34,7 +34,7 @@ public class RecyclerViewCommonAdapter extends RecyclerView.Adapter<RecyclerView
     public void onBindViewHolder(@NonNull RecyclerViewCommonHolder recyclerViewCommonHolder, int i) {
         if(model==null)
             return;
-        final Constants.ItemModel itemModel = model.get(i);
+        final Constants_Menu.ItemModel itemModel = model.get(i);
         recyclerViewCommonHolder.tvText.setText(itemModel.getName());
         recyclerViewCommonHolder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +52,7 @@ public class RecyclerViewCommonAdapter extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void update(Object o) {
-        model = (Constants.MainMenuModel) o;
+        model = (Constants_Menu.MainMenuModel) o;
         this.size = model.size;
         notifyDataSetChanged();
     }

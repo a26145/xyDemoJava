@@ -7,9 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.xydemo.base.BaseApplication;
 import com.example.xydemo.entity.LordMoreEntity;
 import com.example.xydemojava.R;
 
@@ -20,6 +22,7 @@ import butterknife.ButterKnife;
 
 public class RecyclerLoadMoreAdapter extends RecyclerView.Adapter<RecyclerLoadMoreAdapter.MyViewHolder> {
     private final List<LordMoreEntity> mListData;
+
     // 是否是 福利
     private boolean mIsFuli = false;
 
@@ -31,7 +34,7 @@ public class RecyclerLoadMoreAdapter extends RecyclerView.Adapter<RecyclerLoadMo
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        Context context = parent.getContext().getApplicationContext();
+        Context context = BaseApplication.getAppContext();
         if (mIsFuli) {
             return new MyViewHolder(View.inflate(context, R.layout.item_recycler_more_full, null));
         } else {
@@ -59,18 +62,21 @@ public class RecyclerLoadMoreAdapter extends RecyclerView.Adapter<RecyclerLoadMo
 
     @Override
     public int getItemCount() {
-        return mListData.size();;
+        return mListData.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        @Nullable@BindView(R.id.gank_item_title)
+        @Nullable
+        @BindView(R.id.gank_item_title)
         TextView title;
 
-        @Nullable@BindView(R.id.gank_item_subtitle)
+        @Nullable
+        @BindView(R.id.gank_item_subtitle)
         TextView subtitle;
 
-        @Nullable@BindView(R.id.gank_item_image)
+        @Nullable
+        @BindView(R.id.gank_item_image)
         ImageView image;
 
         // FULI fragment

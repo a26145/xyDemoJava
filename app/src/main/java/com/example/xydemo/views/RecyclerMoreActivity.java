@@ -1,41 +1,39 @@
 package com.example.xydemo.views;
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
+import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
+import com.example.xydemo.adapter.GankViewPagerAdapter;
 import com.example.xydemo.base.BaseActivity;
 import com.example.xydemojava.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
-public class RecyclerMoreActivity extends BaseActivity {
-    @BindView(R.id.gank_recycler_view)
-    RecyclerView recyclerView;
-    @BindView(R.id.gank_swipe_refresh_layout)
-    SwipeRefreshLayout swipeRefreshLayout;
+public class RecyclerMoreActivity extends AppCompatActivity {
 
-    @Override
-    protected void initViews() {
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
+    @BindView(R.id.gank_view_pager)
+    ViewPager mViewPager;
 
-            }
-        });
-        RecyclerView.Adapter adapter = new YourOwnAdapter();
-        AdapterWrapper adapterWrapper = new AdapterWrapper(adapter);
-        // 将RecyclerView和刚创建的adapterWrapper传入
-        SwipeToLoadHelper helper = new SwipeToLoadHelper(recyclerView, adapterWrapper);
-    }
-
-    public void endRefresh(){
-        swipeRefreshLayout.setRefreshing(false);
-    }
+    private List<String> mFragmentType = new ArrayList<String>(){
+        {
+            add("Android");
+            add("福利");
+        }
+    };
 
     @Override
-    protected int initContentView() {
-        return R.layout.activity_recycler_more;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_loadmore);
+        ButterKnife.bind(this);
+        mViewPager.setAdapter(new GankViewPagerAdapter(getSupportFragmentManager(), mFragmentType));
     }
 
 }

@@ -49,7 +49,6 @@ public class AdapterRecyclerViewVideoPlug extends RecyclerView.Adapter<AdapterRe
                 VideoConstant.videoUrls[0][position], JZVideoPlayer.SCREEN_WINDOW_LIST,
                 VideoConstant.videoTitles[0][position]);
         Glide.with(holder.videoplayer.getContext()).load(VideoConstant.videoThumbs[0][position]).into(holder.videoplayer.thumbImageView);
-
         holder.btDz.setTag(new TagClass(position,"点赞"));
         holder.btDz.setOnClickListener(mListener);
         holder.btFx.setTag(new TagClass(position,"分享"));

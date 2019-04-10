@@ -1,5 +1,10 @@
 package com.example.xydemo.constant;
 
+import com.example.xydemo.entity.LordMoreEntity;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by shengjun on 16/9/10.
  */
@@ -110,5 +115,17 @@ public class VideoConstant {
                             "饺子好喜欢"
                     }
             };
-
+    public static List<LordMoreEntity> getVideoEntity(){
+        ArrayList<LordMoreEntity> lordMoreEntities = new ArrayList<>();
+        for(int i = 0 ; i < videoThumbList.length ; i++){
+            LordMoreEntity lordMoreEntity = new LordMoreEntity();
+            ArrayList<String> titleList = new ArrayList<String>();
+            titleList.add(videoThumbs[0][i]);
+            lordMoreEntity.setmImages(titleList);
+            lordMoreEntity.setmUrl(videoUrlList[i]);
+            lordMoreEntity.setmDesc(videoTitles[0][i]);
+            lordMoreEntities.add(lordMoreEntity);
+        }
+        return lordMoreEntities;
+    }
 }

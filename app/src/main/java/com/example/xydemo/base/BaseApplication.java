@@ -18,7 +18,7 @@ public class BaseApplication extends Application {
     private void initActivityGroup() {
         activityList = new LinkedList<>();
     }
-    public BaseApplication getAppContext(){
+    public static BaseApplication getAppContext(){
         return application;
     }
 
