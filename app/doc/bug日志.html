@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2019/3/30日bug日志</title>
+</head>
+<body>
+	<div>
+		<ul>
+			问题：org.apache.catalina.core.StandardContext.startInternal One or more Filters failed to start. Full details will be found in the appropriate container log file
+			<li>
+				解决：
+			
+					Ctrl+Alt+Shift+S弹出Project Structure窗口，在Output Layout标签中找到Available Elements，鼠标右击下面的元素： 
+				
+					</br>
+					点击Put into Output Root，执行后，在WEB-INF会增加lib目录，里面是项目引用的jar包，点击OK。再次部署应用就能成功运行了。 
+					<br>	
+					注意Output这个选项是在Tomcat配置理
+			</li>
+		</ul>
+		<ul>
+			问题：tomcat 启动Struts项目报错：ERROR StatusLogger Log4j2 could not find a logging implementation. Please add log4j-core to the classpath. Using SimpleLogger to log to the console...
+			<li>
+				原因：Log4j的jar包本地没有下载。导致启动时报错。
+			</li>
+			<li>
+				解决：1.找到本地maven仓库Log4j文件夹，删除。 <br>
+			         2.更新maven依赖，重新下载log4j的jar包。 选中项目--> 鼠标右键-->Maven -->Reimport  
+			</li>
+		</ul>
+		<ul>
+			1.Intellij IDEA是有自己的Maven插件的，我们只需要配置一下就可以
+			2.默认仓库位置为C:\Users\账户.m2\repository，如果不更改仓库就会占用C盘空间，反正我的使用没多久仓库就是几个G大小了。
+			<li>
+				二. 配置说明
+1.File->Settings(Settings仅是当前项目的maven设置，如果你希望所有项目maven位置都改变为如下设置，可以选择Other Settings),搜索maven，就可以看到如下界面：注意配置文件的位置和后面两个Override打√(仓库地址自己新建一个空白文件夹就行了)
+			</li>
+		</ul>
+		<ul>
+			WARNING: API 'variant.getExternalNativeBuildTasks()' is obsolete and has been 
+replaced with 'variant.getExternalNativeBuildProviders()'.
+It will be removed at the end of 2019.
+For more information, see https://d.android.com/r/tools/task-configuration- 
+avoidance
+Affected Modules: app
+		<li>
+			解决 降低gradle版本到3.2.1
+		</li>
+		</ul>
+
+		<ul>	
+				mysql用navicate 导入create文件 注意 看 有没有create database语句 有的话 直接导入  没有的话 需要创建对应的数据库
+		</ul>
+
+	</div>
+</body>
+</html>

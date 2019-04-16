@@ -1,27 +1,54 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
+    apply plugin: 'java'
+    ext.kotlin_version = '1.3.30'
+    ext.app_compact_vertion = '28.0.0'
+    ext.app_build_verison = '28.0.3'
+    ext.app_compile_version = 28
+    ext.gradle_version = '3.2.1'
+    ext.min_sdk_version = 16
+    ext.target_sdk_version = 28
+    ext.anko_version='0.10.8'
+    ext.gradile_version = '1.28.0'
+    ext.rx_kotlin_version = '1.0.0'
+    ext.rx_android_version = '1.2.1'
+    ext.ok_http_version = '3.14.0'
+    ext.retrofit_version = '2.5.0'
+
     repositories {
-        google()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://jitpack.io' }
         jcenter()
-        
+        mavenCentral()
+        google()
+
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
-        
+        classpath "com.android.tools.build:gradle:$gradle_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
     }
 }
-
 allprojects {
     repositories {
-        google()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://jitpack.io' }
         jcenter()
-        
+        mavenCentral()
+        google()
+
     }
 }
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
+//
+//
+//task(clean, type: GrailsTestTask, overwrite: true)
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+dependencies {
 }

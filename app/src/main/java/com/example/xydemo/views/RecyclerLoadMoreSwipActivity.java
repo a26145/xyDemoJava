@@ -57,10 +57,15 @@ public class RecyclerLoadMoreSwipActivity extends AppCompatActivity {
 //        enableEmptyViewPolicy();
         enableLoadMore();
 //        enableRefresh();
-        adapter = new RecyclerLoadMoreSwipAdapter(data);
+        adapter = new RecyclerLoadMoreSwipAdapter(data, new RecyclerLoadMoreSwipAdapter.OnItemClickCallback() {
+            @Override
+            public void onDeleteClick(View v, int position) {
+                adapter.notifyItemChanged(position);
+            }
+        });
         adapter.setMode(SwipeItemManagerInterface.Mode.Single);
         mLayoutManager = new ScrollSmoothLineaerLayoutManager(this, LinearLayoutManager.VERTICAL, false, 500);
-        ultimateRecyclerView.setHasFixedSize(false);
+        ultimateRecyclerView.setHasFixedSize(true);
         ultimateRecyclerView.setLayoutManager(mLayoutManager);
 //        swipeListView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
 //            @Override
@@ -95,7 +100,8 @@ public class RecyclerLoadMoreSwipActivity extends AppCompatActivity {
     }
     //加载更多时的 操作
     private void onLoadmore() {
-
+        adapter.addData(data);
+        adapter.notifyDataSetChanged();
     }
     //加载失败
     protected void onFireRefresh() {

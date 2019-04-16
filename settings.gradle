@@ -1,1 +1,1 @@
-include ':app', ':jiaozivideoplayer', ':ultimaterecyclerview'
+include ':app', ':jiaozivideoplayer', ':ultimaterecyclerview', ':mykotlindemo', ':kotlinproviderlibrary', ':basekotlinlibrary', ':xrecyclerview'

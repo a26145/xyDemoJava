@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">UserCenter</string>
+    <string name="hint_name">请输入用户名</string>
+    <string name="hint_密码">请输入密  码</string>
+    <string name="hint_手机号码">请输入手机号</string>
+    <string name="hint_验证码">请输入验证码</string>
+    <string name="btn_confirm">确  认</string>
+    <string name="hint_验证码1">验证码</string>
+</resources>

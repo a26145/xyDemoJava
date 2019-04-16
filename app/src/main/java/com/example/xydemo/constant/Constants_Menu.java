@@ -6,6 +6,7 @@ import com.example.xydemo.views.MediaTestOneActivity;
 import com.example.xydemo.views.RecyclerDelActivity;
 import com.example.xydemo.views.RecyclerLoadMoreSwipActivity;
 import com.example.xydemo.views.RecyclerMoreActivity;
+import com.example.xydemo.views.XRecyclerViewTestActivity2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,8 @@ public class Constants_Menu {
             "下拉刷新recyclerview",
             "视频下拉删除与添加",
             "异步加载测试",
-            "下拉加载，横拉删除测试"
+            "下拉加载，横拉删除测试",
+            "xRecyclerView测试"
     };
     static Class[] classes = {
             MediaTestActivity.class,
@@ -27,6 +29,7 @@ public class Constants_Menu {
             RecyclerDelActivity.class,
             MediaTestDelayActivity.class,
             RecyclerLoadMoreSwipActivity.class,
+            XRecyclerViewTestActivity2.class,
     };
 
 

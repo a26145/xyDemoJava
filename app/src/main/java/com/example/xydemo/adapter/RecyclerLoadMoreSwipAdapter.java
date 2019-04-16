@@ -11,6 +11,7 @@ import com.marshalchen.ultimaterecyclerview.URLogs;
 import com.marshalchen.ultimaterecyclerview.UltimateRecyclerviewViewHolder;
 import com.marshalchen.ultimaterecyclerview.swipe.SwipeLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -19,10 +20,12 @@ import cn.jzvd.JZVideoPlayerStandard;
 
 public class RecyclerLoadMoreSwipAdapter extends SwipeableUltimateViewAdapter<String> {
 
-
-
-    public RecyclerLoadMoreSwipAdapter(List<String> list) {
+    List<String> mList;
+    private OnItemClickCallback clickListener;
+    public RecyclerLoadMoreSwipAdapter(List<String> list, OnItemClickCallback callback) {
         super(list);
+        mList = list;
+        clickListener = callback;
     }
 
     @Override
@@ -57,6 +60,10 @@ public class RecyclerLoadMoreSwipAdapter extends SwipeableUltimateViewAdapter<St
         return new SVHolder(view, false);
     }
 
+    @Override
+    protected void removeNotifyExternal(int pos) {
+        closeItem(pos);
+    }
 
     @Override
     protected UltimateRecyclerviewViewHolder newViewHolder(View view) {
@@ -77,12 +84,18 @@ public class RecyclerLoadMoreSwipAdapter extends SwipeableUltimateViewAdapter<St
         viewHolder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeAt(viewHolder.getPosition());
-                Toast.makeText(view.getContext(), "Deleted " + viewHolder.getPosition(), Toast.LENGTH_SHORT).show();
+                mList.remove(viewHolder.getLayoutPosition());
+                removeAt(viewHolder.getLayoutPosition());
+                Toast.makeText(view.getContext(), "Deleted " + viewHolder.getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                clickListener.onDeleteClick(v,viewHolder.getLayoutPosition());
             }
         });
 
         return viewHolder;
+    }
+
+    public void addData(ArrayList<String> data) {
+        mList.addAll(data);
     }
 
     class SVHolder extends UltimateRecyclerviewViewHolder {
@@ -116,5 +129,8 @@ public class RecyclerLoadMoreSwipAdapter extends SwipeableUltimateViewAdapter<St
 
             }
         }
+    }
+    public interface OnItemClickCallback{
+        void onDeleteClick(View v,int position);
     }
 }

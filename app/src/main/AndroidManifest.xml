@@ -43,6 +43,15 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             />
+        <activity android:name="com.example.xydemo.views.XRecyclerViewTestActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name="com.example.xydemo.views.XRecyclerViewTestActivity2"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat"
+            />
     </application>
 
 </manifest>
