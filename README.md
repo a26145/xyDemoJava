@@ -4,3 +4,5 @@ videoDemo,version:6.2.12
 https://www.jianshu.com/p/3baddcf948af/
 蓝灯
 https://github.com/getlantern/lantern
+常用的cmd命令
+netsta -ano|findstr "5037"
